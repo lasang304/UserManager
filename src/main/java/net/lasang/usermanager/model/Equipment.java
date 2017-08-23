@@ -23,7 +23,7 @@ public class Equipment {
     private String equipmentType;
 
     @Column(name = "OWNER_ID")
-    private String equipmentOwnerId;
+    private int equipmentOwnerId;
 
     public int getId() {
         return id;
@@ -66,11 +66,11 @@ public class Equipment {
     }
 
 
-    public String getEquipmentOwnerId() {
+    public int getEquipmentOwnerId() {
         return equipmentOwnerId;
     }
 
-    public void setEquipmentOwnerId(String equipmentOwnerId) {
+    public void setEquipmentOwnerId(int equipmentOwnerId) {
         this.equipmentOwnerId = equipmentOwnerId;
     }
 }
