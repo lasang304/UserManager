@@ -17,10 +17,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
     private UserService userService;
     private EquipmentService equipmentService;
+
     @Autowired()
     @Qualifier(value = "userService")
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    @Autowired()
+    @Qualifier(value = "equipmentService")
+    public void setUserService(EquipmentService equipmentService) {
+        this.equipmentService = equipmentService;
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)

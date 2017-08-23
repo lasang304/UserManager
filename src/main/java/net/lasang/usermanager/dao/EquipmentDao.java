@@ -13,5 +13,5 @@ public interface EquipmentDao {
 
     public Equipment getEquipmentById(int id);
 
-    public List<Equipment> listEquipments(int id);
+    public List<Equipment> listEquipments(int userId);
 }

@@ -49,17 +49,34 @@
 <body>
 <h1>User Details</h1>
 
-<table class="tg">
-    <tr>
-        <th width="80">ID</th>
-        <th width="120">FullName</th>
-    </tr>
-    <tr>
-        <td>${user.userFullName}</td>
-        <td>${user.id}</td>
 
-    </tr>
-</table>
+<c:if test="${!empty listEquipment}">
+    <table class="tg">
+        <tr>
+            <th width="80">ID</th>
+            <th width="120">Name</th>
+            <th width="40">S/N</th>
+            <th width="120">Specifications</th>
+            <th width="120">Type</th>
+        </tr>
+        <c:forEach items="${listEquipment}" var="equipment">
+            <tr>
+                <th>${equipment.id}</th>
+                <td>${equipment.equipmentName}</td>
+                <td>${equipment.equipmentSN}</td>
+                <td>${equipment.equipmentSpecifications}</td>
+                <td>${equipment.equipmentType}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</c:if>
+
+<c:if test="${empty listEquipment}">
+
+    <h3>No equipments</h3>
+</c:if>
+
+
 
 
 </body>

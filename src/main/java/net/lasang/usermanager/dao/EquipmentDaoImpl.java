@@ -3,6 +3,8 @@ package net.lasang.usermanager.dao;
 import net.lasang.usermanager.model.Equipment;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -42,8 +44,9 @@ public class EquipmentDaoImpl implements EquipmentDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Equipment> listEquipments(int id) {
+    public List<Equipment> listEquipments(int userId) {
         Session session = this.sessionFactory.getCurrentSession();
-        return  session.createQuery("from Equipment").list();
+        Criteria criteria = session.createCriteria(Equipment.class);
+        return   criteria.add(Restrictions.like("equipmentOwnerId", userId)).list();
     }
 }
